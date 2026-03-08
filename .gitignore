@@ -1,0 +1,45 @@
+# Chaves privadas - NUNCA commitar
+*.pem
+*.key
+*.ppk
+
+# Terraform
+.terraform/
+*.tfstate
+*.tfstate.*
+*.tfvars
+.terraform.lock.hcl
+
+# Credenciais AWS
+.aws/
+credentials
+config
+
+# Arquivos de output de comandos AWS/EC2
+**/ec2*
+**/aws*
+**/*describe-instances*
+
+# IDE
+.vscode/
+.idea/
+
+# Maven
+target/
+pom.xml.tag
+pom.xml.releaseBackup
+pom.xml.versionsBackup
+pom.xml.next
+release.properties
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# README original da aplicação (não subir)
+jpetstore-6/README.md
+
+# Workflows do GitHub Actions (usar Jenkins ao invés)
+jpetstore-6/.github/
