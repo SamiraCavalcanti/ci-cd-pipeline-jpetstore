@@ -7,5 +7,7 @@
 /build
 .mvn/wrapper/maven-wrapper.jar
 *.releaseBackup
+# Bloquear properties exceto maven-wrapper
 *.properties
+!.mvn/wrapper/maven-wrapper.properties
 .env
