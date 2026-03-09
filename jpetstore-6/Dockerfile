@@ -22,6 +22,6 @@ RUN ./mvnw clean package -Dlicense.skip=true -DskipTests
 
 # Runtime stage
 FROM tomcat:9.0-jdk17
-COPY --from=builder /usr/src/myapp/target/jpetstore-6.1.1-SNAPSHOT.war /usr/local/tomcat/webapps/jpetstore.war
+COPY --from=builder /usr/src/myapp/target/jpetstore.war /usr/local/tomcat/webapps/jpetstore.war
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
