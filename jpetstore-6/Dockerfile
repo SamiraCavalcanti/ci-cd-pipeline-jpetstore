@@ -14,8 +14,14 @@
 #    limitations under the License.
 #
 
-FROM openjdk:17.0.2
+# Build stage
+FROM openjdk:17.0.2 AS builder
 COPY . /usr/src/myapp
 WORKDIR /usr/src/myapp
-RUN ./mvnw clean package -Dlicense.skip=true
-CMD ./mvnw cargo:run -P tomcat90
+RUN ./mvnw clean package -Dlicense.skip=true -DskipTests
+
+# Runtime stage
+FROM tomcat:9.0-jdk17
+COPY --from=builder /usr/src/myapp/target/jpetstore-6.1.1-SNAPSHOT.war /usr/local/tomcat/webapps/jpetstore.war
+EXPOSE 8080
+CMD ["catalina.sh", "run"]
