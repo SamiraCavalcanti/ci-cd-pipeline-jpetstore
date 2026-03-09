@@ -1,12 +1,8 @@
 - name: docker build and push
   hosts: local  # Replace with the hostname or IP address of your target server
-  become: yes  # Run tasks with sudo privileges
+  become: no  # Jenkins user already in docker group
 
   tasks:
-    - name: Update apt package cache
-      apt:
-        update_cache: yes   
-
     - name: Build Docker Image
       command: docker build -t jpetstore .
       args:
